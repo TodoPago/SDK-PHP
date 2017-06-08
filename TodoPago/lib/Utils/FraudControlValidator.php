@@ -116,7 +116,7 @@ class FraudControlValidator {
 			$descs = explode("#", $desc);
 			$cant = count($descs);
 			if((254/$cant) < 19) {
-				foreach($descs as $d) {
+				foreach($descs as $i=>$d) {
 					$descs[$i] = $this->truncate($d, array(254/19));
 				}		
 				$aux = "";			
@@ -150,7 +150,7 @@ class FraudControlValidator {
 		$res = array();
 		if(count($arr) > $cant) {
 			for($i = 0; $i < $cant; $i++) {
-				$arr[$i] = $this->clean($res[$i]);
+				$arr[$i] = $this->clean($arr[$i]);
 				if($number) {
 					$res[$i] = $this->amount($arr[$i]);
 				} else {
